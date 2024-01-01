@@ -9,7 +9,11 @@ interface iAppProps {
 }
 
 export default function ImageGallery({images}: iAppProps){
-    const [bigImage, setImage] = useState(images[0])
+    const [bigImage, setBigImage] = useState(images[0])
+
+    const handleSmallImageClick = (image: any) => {
+        setBigImage(image)
+    }
     return(
         <div className="grid gap-4 lg:grid-cols-5">
             <div className="order-last flex gap-4 lg:order-none lg:flex-col">
@@ -21,6 +25,7 @@ export default function ImageGallery({images}: iAppProps){
                             height={200} 
                             alt="alt photo" 
                             className="h-full w-full object-cover object-center cursor-pointer"
+                            onClick={() => setBigImage(image)}
                         />
                     </div>
                 ))}
@@ -33,6 +38,7 @@ export default function ImageGallery({images}: iAppProps){
                             alt="big photo" 
                             className="h-full w-full object-cover object-center cursor-pointer"
                         />  
+                        <span className="absolute left-0 top-0 rounder-br-lg bg-red-500 px-3 py-1.5 uppercase tracking-wider text-white">SALE</span>
             </div>
         </div>
     )
