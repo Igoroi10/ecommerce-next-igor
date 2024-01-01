@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { client, urlFor } from "@/app/sanity"; 
-import { Link } from "lucide-react";
+import Link from "next/link";
 
 async function getData() {
     const query = "*[_type == 'heroImage'][0]"
