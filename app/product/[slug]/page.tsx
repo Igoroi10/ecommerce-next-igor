@@ -1,3 +1,4 @@
+import { fullProduct } from "@/app/interface";
 import { client } from "@/app/sanity";
 
 async function getData(slug: string) {
@@ -17,7 +18,8 @@ async function getData(slug: string) {
     return data;
   }
 
-export default function ProductPage() {
+export default async function ProductPage({params}: {params: {slug: string}}) {
+    const data: fullProduct = await getData(params.slug)
     return(
         <h1>Product page</h1>
     )
