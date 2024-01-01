@@ -15,6 +15,6 @@ async function getData(category: string) {
     return data;
 }
 
-export default async function CategoryPage(){
-    
+export default async function CategoryPage({params}:{params: {category:string}}){
+    const data = await getData(params.category)
 }
